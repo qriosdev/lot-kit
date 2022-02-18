@@ -24,5 +24,8 @@
 		"svelte": "^3.44.0",
 		"svelte-preprocess": "^4.9.8"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"wrangler": "^0.0.17"
+	}
 }
