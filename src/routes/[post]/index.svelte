@@ -2,28 +2,32 @@
 	export async function load({ fetch, params }) {
 		const { post } = params;
 
-		const request = await fetch(`/api/data.json?article=${post}`);
-		const response = await request.json();
+		// const request = await fetch(`/api/data.json?article=${post}`);
+		// const response = await request.json();
 
-		const content = await import(`../../lib/content/posts/${post}.md`);
+		const data = await import(`../../lib/content/posts/${post}.md`);
 
 		return {
 			props: {
-				article: response,
-				content
+				content: data.default,
+				title: data.metadata.title,
+				date: data.metadata.date,
+				category: data.metadata.categories[0],
+				image: data.metadata.coverImage,
+				slug: post
 			}
 		};
 	}
 </script>
 
 <script>
-	export let article, content;
-	const { title, date, categories, coverImage, slug } = article;
+	export let content, title, date, category, image, slug;
 </script>
 
-<img src={coverImage} alt="{title} | {categories[0]}" />
+<img src={image} alt="{title} | {category}" />
 <h1>{title}</h1>
-<p>{categories[0]}</p>
+<p>{category}</p>
 <p>{date}</p>
+<p>{slug}</p>
 
-<svelte:component this={content.default} />
+<svelte:component this={content} />
