@@ -2,15 +2,19 @@
 	export async function load({ fetch, params }) {
 		const { category } = params;
 
-		const getPosts = await fetch(`/api/data.json?limit=100&category=${category}`);
-		const posts = await getPosts.json();
+		const categories = await (await fetch(`/api/categories.json`)).json();
+		const isCategory = categories.includes(category);
 
-		if (!!posts[0]) {
-			return {
-				props: {
-					posts
-				}
-			};
+		if (isCategory) {
+			const posts = await (await fetch(`/api/data.json?limit=100&category=${category}`)).json();
+
+			if (!!posts[0]) {
+				return {
+					props: {
+						posts
+					}
+				};
+			}
 		}
 
 		return { fallthrough: true };
