@@ -26,9 +26,9 @@
 				<a href="/{slug}">
 					<h2>{title}</h2>
 				</a>
-				<a href="/{category}">
+				<!-- <a href="/{category}">
 					<p>{category}</p>
-				</a>
+				</a> -->
 			</div>
 		{/each}
 	</div>
