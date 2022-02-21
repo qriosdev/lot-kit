@@ -21,9 +21,10 @@
 	<div class="row">
 		{#each posts as { title, categories, coverImage, slug }}
 			{@const category = categories[0]}
+			{@const link = `/${slug}`}
 			<div>
 				<img src={coverImage} alt="{title} | {category}" />
-				<a href="/{slug}">
+				<a href={link}>
 					<h2>{title}</h2>
 				</a>
 				<!-- <a href="/{category}">
