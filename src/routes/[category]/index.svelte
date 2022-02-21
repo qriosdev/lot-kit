@@ -1,21 +1,25 @@
 <script context="module">
-	export async function load({ fetch }) {
-		const getPosts = await fetch(`/api/data.json?limit=100`);
+	export async function load({ fetch, params }) {
+		const { category } = params;
+
+		const getPosts = await fetch(`/api/data.json?limit=100&category=${category}`);
 		const posts = await getPosts.json();
 
-		return {
-			props: {
-				posts
-			}
-		};
+		if (!!posts[0]) {
+			return {
+				props: {
+					posts
+				}
+			};
+		}
+
+		return { fallthrough: true };
 	}
 </script>
 
 <script>
 	export let posts;
 </script>
-
-<h1>Home</h1>
 
 <section>
 	<div class="row">
