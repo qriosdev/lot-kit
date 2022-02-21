@@ -21,15 +21,14 @@
 	<div class="row">
 		{#each posts as { title, categories, coverImage, slug }}
 			{@const category = categories[0]}
-			{@const link = `/${slug}`}
 			<div>
 				<img src={coverImage} alt="{title} | {category}" />
-				<a href={link}>
+				<a href="/{slug}">
 					<h2>{title}</h2>
 				</a>
-				<!-- <a href="/{category}">
+				<a href="/{category}">
 					<p>{category}</p>
-				</a> -->
+				</a>
 			</div>
 		{/each}
 	</div>

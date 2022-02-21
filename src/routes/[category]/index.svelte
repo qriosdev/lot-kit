@@ -21,6 +21,7 @@
 	export let posts;
 </script>
 
+<h1>Category</h1>
 <section>
 	<div class="row">
 		{#each posts as { title, categories, coverImage, slug }}

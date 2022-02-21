@@ -21,13 +21,15 @@
 </script>
 
 <script>
-	export let content, title, date, category, image, slug;
+	export let content, title, date, category, image;
 </script>
 
+<h1>Post</h1>
 <img src={image} alt="{title} | {category}" />
 <h1>{title}</h1>
-<p>{category}</p>
+<a href="/{category}">
+	<p>{category}</p>
+</a>
 <p>{date}</p>
-<p>{slug}</p>
 
 <svelte:component this={content} />
