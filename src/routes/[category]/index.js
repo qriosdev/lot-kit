@@ -1,4 +1,4 @@
-export async function get({ params }) {
+export function get({ params }) {
 	const posts = import.meta.globEager('../../lib/content/posts/*.md');
 	const { category } = params;
 	const data = [];
@@ -10,7 +10,11 @@ export async function get({ params }) {
 		if (metadata.categories.includes(category)) data.push(metadata);
 	}
 
-	return {
-		body: { posts: data }
-	};
+	if (data.length > 0) {
+		return {
+			body: { posts: data }
+		};
+	}
+
+	return { fallthrough: true };
 }
