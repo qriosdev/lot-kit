@@ -1,4 +1,14 @@
-<script context="module">
+<script>
+	export let posts;
+</script>
+
+<!-- <section>
+	<div class="row">
+		{posts}
+	</div>
+</section> -->
+
+<!-- <script context="module">
 	export async function load({ fetch, params }) {
 		const { category } = params;
 
@@ -19,11 +29,12 @@
 
 		return { fallthrough: true };
 	}
-</script>
+</script> -->
 
-<script>
+<!-- <script>
 	export let posts;
-</script>
+	console.log(posts);
+</script> -->
 
 <h1>Category</h1>
 <section>
