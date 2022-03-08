@@ -12,7 +12,7 @@ export function get({ params }) {
 
 	if (data.length > 0) {
 		return {
-			body: { posts: data }
+			body: { data }
 		};
 	}
 

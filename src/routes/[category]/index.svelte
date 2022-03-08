@@ -1,11 +1,11 @@
 <script>
-	export let posts;
+	export let data;
 </script>
 
 <h1>Category</h1>
 <section>
 	<div class="row">
-		{#each posts as { title, categories, coverImage, slug }}
+		{#each data as { title, categories, coverImage, slug }}
 			{@const category = categories[0]}
 			<div>
 				<img src={coverImage} alt="{title} | {category}" />
