@@ -1,4 +1,4 @@
-export function get({ params }) {
+export async function get({ params }) {
 	const posts = import.meta.globEager('../../lib/content/posts/*.md');
 	const { category } = params;
 	const data = [];
@@ -15,6 +15,4 @@ export function get({ params }) {
 			body: { data }
 		};
 	}
-
-	return { fallthrough: true };
 }
