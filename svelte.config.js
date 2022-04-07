@@ -12,6 +12,9 @@ const sassPath = `${filePath}/src/lib/style/`;
 const config = {
 	kit: {
 		adapter: adapter({}),
+		prerender: {
+			default: true
+		},
 
 		// prerender: {
 		// 	entries: [...routes]
