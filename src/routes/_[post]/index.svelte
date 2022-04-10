@@ -11,4 +11,4 @@
 </a>
 <p>{date}</p>
 
-<svelte:component this={content} />
+<!-- <svelte:component this={content} /> -->
